@@ -1,0 +1,59 @@
+CREATE database Anthony_DW;
+GO
+
+USE Anthony_DW;
+GO
+
+-- Create DimStaff table
+CREATE TABLE DimStaff (
+    StaffKey INT IDENTITY(1,1) PRIMARY KEY,
+    StaffID INT,
+    StaffName NVARCHAR(100),
+    RoleID INT,
+    RoleName NVARCHAR(50)
+);
+
+-- Create DimRoster table
+CREATE TABLE DimRoster (
+    RosterKey INT IDENTITY(1,1) PRIMARY KEY,
+    RosterID INT,
+    StartTime DATETIME,
+    EndTime DATETIME
+);
+
+-- Create FactRoster table
+CREATE TABLE FactRoster (
+    RosterKey INT,
+    StaffKey INT,
+    FOREIGN KEY (RosterKey) REFERENCES DimRoster(RosterKey),
+    FOREIGN KEY (StaffKey) REFERENCES DimStaff(StaffKey)
+);
+
+-- Insert data from source tables
+INSERT INTO DimStaff (StaffID, StaffName, RoleID, RoleName)
+SELECT DISTINCT
+    s.staffID,
+    s.name,
+    r.roleID,
+    r.roleName
+FROM 
+    fastfood.dbo.staff s
+    INNER JOIN fastfood.dbo.rosterrole rr ON s.staffID = rr.staffID
+    INNER JOIN fastfood.dbo.role r ON rr.roleID = r.roleID;
+
+INSERT INTO DimRoster (RosterID, StartTime, EndTime)
+SELECT DISTINCT
+    rosterID,
+    start AS StartTime,
+    [end] AS EndTime
+FROM 
+    fastfood.dbo.roster;
+
+INSERT INTO FactRoster (RosterKey, StaffKey)
+SELECT 
+    dr.RosterKey,
+    ds.StaffKey
+FROM 
+    fastfood.dbo.rosterrole rr
+    INNER JOIN DimStaff ds ON rr.staffID = ds.StaffID
+    INNER JOIN DimRoster dr ON rr.rosterID = dr.RosterID;

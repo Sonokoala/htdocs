@@ -1,0 +1,61 @@
+/* Maintain the original styles */
+.logo {
+    max-width: 200px; /* Set maximum width */
+    height: auto;     /* Height adjusts automatically */
+    display: block;   /* Make the logo a block element */
+    margin: 0 auto;  /* Center align the logo */
+}
+
+.sidebar {
+    height: 100vh; /* Fixed height for the sidebar */
+    width: 250px;  /* Fixed width */
+    background-color: #fff;
+    position: fixed; /* Keep it fixed on the screen */
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.nav-link {
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    display: block; /* Make links block elements */
+}
+
+.nav-link:hover {
+    background-color: #f8f9fa; /* Highlight on hover */
+}
+
+.nav-link.active {
+    font-weight: bold; /* Highlight active link */
+    color: #007bff;    /* Color for active link */
+}
+
+.container {
+    margin-left: 260px; /* Adjust margin for the sidebar width */
+    padding-bottom: 100px; /* Space for footer */
+}
+
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+/* Styles for the contact form */
+.contact-form {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Highlight on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
