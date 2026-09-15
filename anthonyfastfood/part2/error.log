@@ -1,0 +1,10 @@
+[10-Jun-2025 15:14:02 Asia/Tokyo] PHP Warning:  Undefined variable $logFile in C:\xampp\htdocs\anthonyfastfood\part2\debug.php on line 17
+[10-Jun-2025 15:14:02 Asia/Tokyo] PHP Warning:  Undefined variable $logFile in C:\xampp\htdocs\anthonyfastfood\part2\debug.php on line 18
+[10-Jun-2025 15:14:02 Asia/Tokyo] PHP Warning:  mkdir(): Invalid path in C:\xampp\htdocs\anthonyfastfood\part2\debug.php on line 20
+[10-Jun-2025 15:14:02 Asia/Tokyo] PHP Warning:  Undefined variable $logFile in C:\xampp\htdocs\anthonyfastfood\part2\debug.php on line 22
+[10-Jun-2025 15:14:02 Asia/Tokyo] PHP Fatal error:  Uncaught ValueError: Path cannot be empty in C:\xampp\htdocs\anthonyfastfood\part2\debug.php:22
+Stack trace:
+#0 C:\xampp\htdocs\anthonyfastfood\part2\debug.php(22): file_put_contents('', '')
+#1 C:\xampp\htdocs\anthonyfastfood\part2\test_login.php(3): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\anthonyfastfood\part2\debug.php on line 22

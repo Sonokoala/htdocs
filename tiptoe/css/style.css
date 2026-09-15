@@ -1,0 +1,119 @@
+/* Basic page layout to ensure full-height, flexible design */
+.body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container-fluid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* Header design with subtle bottom border */
+.header {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Sidebar styling with light background and border */
+.sidebar {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  min-height: calc(100vh - 80px); /* Adjust for header height */
+}
+
+/* Navigation link default state */
+.navbar-nav .nav-link {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Navigation link hover effect */
+.navbar-nav .nav-link:hover {
+  background-color: #e9ecef;
+}
+
+/* Active home page link style */
+.navbar-nav .nav-link.active[href*="shoeshop.php"] {
+  color: #007bff; /* Bootstrap primary blue */
+  background-color: #e9ecef; /* Light background for active state */
+}
+
+/* Main content area padding and flexibility */
+.main-content {
+  padding: 2rem;
+  flex: 1;
+}
+
+/* Product card hover and transition effects */
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover; /* Ensures consistent image sizing */
+}
+
+/* Footer design with full-width background and links */
+footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  margin-top: auto; /* Pushes footer to bottom */
+}
+
+/* Footer links styling */
+footer .links {
+  margin-bottom: 15px;
+}
+
+footer .links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer .links a:hover {
+  text-decoration: underline;
+}
+
+/* Social media logo container */
+footer .social-logo {
+  margin: 15px 0;
+}
+
+footer .social-logo img {
+  max-width: 150px;
+  height: auto;
+}
+
+/* Copyright text styling */
+footer .copyright {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 767.98px) {
+  .sidebar {
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}

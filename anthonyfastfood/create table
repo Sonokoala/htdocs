@@ -1,0 +1,65 @@
+USE Anthony_DW;
+GO
+
+CREATE TABLE dbo.FactOrder(
+    fact_order_sk int,
+	fact_order_pk Varchar(50),
+	fact_order_bk Varchar(50),
+	dim_datetime DATETIME,
+	dim_branch_id Varchar(50),
+	dim_customer_id Varchar(50),
+	dim_staff_id  Varchar(50),
+	dim_menuitem_id Varchar(50),
+	dim_menu_category_id Varchar(50),
+	unit_price MONEY,
+    qty int,
+    start_ cook_time DATETIME,
+    finish_cook_time DATETIME,
+    order_receive_datime DATETIME,
+    order_correct_datime DATETIME,
+    total_price MONEY,
+);
+
+CREATE TABLE dbo.DimBranch (
+     dim_branch_id_sk int,
+     dim_branch_id_pk Varchar(50),
+     dim_branch_id_bk Varchar(50),
+     branch_name Varchar(50),
+     adress Varchar(50),
+     phone  Varchar(50)        
+);
+
+CREATE TABLE dbo.DimCustomer (
+     dim_customer_id_sk int,
+     dim_customer_id_pk Varchar(50),
+     dim_customer_id_bk Varchar(50),
+     first_name Varchar(50),
+     last_name Varchar(50),
+     mob  Varchar(50)        
+);
+
+CREATE TABLE dbo.MenuItem (
+     dim_menuitem_id_sk int,
+     dim_menuitem_id_pk Varchar(50),
+     dim_menuitem_id_bk Varchar(50),
+     list_price MONEY,
+     menu_category_id Varchar(50),
+     ingredient_id Varchar(50)
+);
+
+CREATE TABLE dbo.DimStaff (
+     dim_staff_id_sk int,
+     dim_staff_id_pk Varchar(50),
+     dim_staff_id_bk Varchar(50),
+     dim_branch_id Varchar(50),
+     role Varchar(50),
+     first_name Varchar(50),
+     last_name Varchar(50),
+     mob  Varchar(50)        
+);
+
+CREATE TABLE dbo.Datetime (
+     dim_datetime_sk int,
+     dim_datetime_pk Varchar(50),
+     dim_datetime_bk Varchar(50),
+);

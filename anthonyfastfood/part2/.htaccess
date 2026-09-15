@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Handle staff update URL
+RewriteRule ^update_staff\.php$ staff_update.php [L]
+
+# Custom error pages
+ErrorDocument 404 /anthonyfastfood/part2/error.php?code=404
+ErrorDocument 403 /anthonyfastfood/part2/error.php?code=403
+ErrorDocument 500 /anthonyfastfood/part2/error.php?code=500 
