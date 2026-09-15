@@ -1,0 +1,24 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.ini.local
+
+# Runtime logs and temporary files
+*.log
+logs/
+**/logs/
+tmp/
+temp/
+*.tmp
+
+# Local XAMPP and database artefacts
+*.pid
+*.sock
+*.sql.bak
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
