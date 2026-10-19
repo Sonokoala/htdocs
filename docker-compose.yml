@@ -1,0 +1,42 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8090:80"
+    volumes:
+      - ./:/var/www/html
+      - mysqld_socket:/run/mysqld
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mariadb:11.4
+    environment:
+      # Matches the XAMPP defaults hardcoded in the PHP files (root, no password).
+      # Dev only: the DB port is not published outside Docker.
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: "1"
+    volumes:
+      - db_data:/var/lib/mysql
+      - mysqld_socket:/run/mysqld
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    ports:
+      - "8091:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: ""
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+  mysqld_socket:
